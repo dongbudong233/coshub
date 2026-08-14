@@ -1,0 +1,39 @@
+# ===================== Java / Maven =====================
+target/
+*.class
+*.jar
+!.mvn/wrapper/maven-wrapper.jar
+*.war
+*.ear
+
+# 本地构建工具（Maven 发行版、MySQL 二进制、本地仓库，不入库）
+.tools/
+
+# MySQL 独立实例数据与日志（不入库，仅保留 my.ini 配置）
+.mysql/data/
+.mysql/logs/
+.mysql/*.gbk
+.mysql/write_myini.py
+
+# ===================== Node / 前端 =====================
+node_modules/
+dist/
+dist-ssr/
+.vite/
+*.local
+
+# ===================== IDE =====================
+.idea/
+*.iml
+.vscode/
+.DS_Store
+*.swp
+
+# ===================== 环境变量 =====================
+.env
+.env.local
+.env.*.local
+
+# ===================== 日志 =====================
+*.log
+logs/

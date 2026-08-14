@@ -1,0 +1,37 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: coshub-api
+  profiles:
+    active: dev
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.coshub.entity
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    banner: false
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+# 业务自定义配置
+coshub:
+  jwt:
+    # HS256 签名密钥（请在生产环境更换）
+    secret: "coshub-beauty-forum-jwt-secret-key-2026-secure-hash-1234567890-abcdefghijklmnop"
+    # token 有效期（毫秒），默认 24 小时
+    expire: 86400000
+    header: Authorization
+    prefix: "Bearer "
