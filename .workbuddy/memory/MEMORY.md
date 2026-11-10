@@ -9,7 +9,8 @@
 - 数据库：MySQL 8，库名 `coshub`，端口 3307（独立实例）
 
 ## 硬性约束（用户明确要求）
-- **所有文件必须在 `D:\MyProject\coshub` 内**（项目已从 `D:\个人项目\coshub` 迁移至此），不得干扰其他项目
+- **项目代码与数据必须在 `D:\MyProject\coshub` 内**（项目已从 `D:\个人项目\coshub` 迁移至此），不得干扰其他项目
+- **共享工具已迁移至 `D:\MyProject\.tools`**（Maven/MySQL 二进制 + maven-repo，多个项目共用），coshub 内不再有 `.tools`
 - **禁止触碰 `D:\dhtech`、`D:\dh_project`**（只读探查后也不再访问）
 - 数据库只能操作新建的 `coshub` 库，绝不碰其他库（本机另有 `D:\dhtech\apps\mysql` 与 `192.168.110.162:3306` 为公司数据库，严禁连接）
 
@@ -18,11 +19,12 @@
 - 后端编译：`cd coshub-api && ../mvnw clean package -DskipTests`（用根目录 `mvnw` 包装脚本，规避中文路径 + cygpath 问题）
 - 前端：`cd coshub-vue && npm install && npm run dev`（vite proxy 已配 `/api` → 8080）
 
-## 数据库运行方式（已修复）
-- MySQL 8.0.29 二进制：`D:\MyProject\coshub\.tools\mysql-8.0.29-winx64`
+## 数据库运行方式（已修复 + 工具已共享化）
+- MySQL 8.0.29 二进制：`D:\MyProject\.tools\mysql-8.0.29-winx64`（共享工具目录，2026-08-31 从 coshub/.tools 迁出）
 - 启动命令：`mysqld --defaults-file=D:\MyProject\coshub\.mysql\my.ini`（端口 3307，绑定 127.0.0.1）
+- Maven：`D:\MyProject\.tools\apache-maven-3.9.9`，本地仓库 `D:\MyProject\.tools\maven-repo`（共享）；`mvnw` 通过 `../.tools/...` 相对定位
 - root 密码：`123456`（曾为空密码，已重置；另建 `root@'127.0.0.1'` 账号）
-- 注意：`skip-name-resolve` 开启时 TCP 连接需匹配 `root@'127.0.0.1'`；数据目录 `.mysql/data`
+- 注意：`skip-name-resolve` 开启时 TCP 连接需匹配 `root@'127.0.0.1'`；数据目录 `.mysql/data`（项目私有，不共享）
 
 ## 已知坑（务必记住）
 - ~~MySQL 8.0.29 在 Windows 中文路径下「启动」失败~~ **已解决**：迁移到 `D:\MyProject\coshub`（无中文路径）后正常

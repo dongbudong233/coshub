@@ -1,4 +1,4 @@
-package com.coshub;
+package com.coshub.web;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;

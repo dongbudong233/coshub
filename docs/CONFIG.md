@@ -128,7 +128,7 @@ default-character-set=utf8mb4
 
 [mysqld]
 port=3307
-basedir=D:/MyProject/coshub/.tools/mysql-8.0.29-winx64
+basedir=D:/MyProject/.tools/mysql-8.0.29-winx64
 datadir=D:/MyProject/coshub/.mysql/data
 character-set-server=utf8mb4
 collation-server=utf8mb4_general_ci
@@ -172,14 +172,14 @@ default-character-set=utf8mb4
 
 ```bash
 # 启动（Git Bash）
-"D:/MyProject/coshub/.tools/mysql-8.0.29-winx64/bin/mysqld.exe" \
+"D:/MyProject/.tools/mysql-8.0.29-winx64/bin/mysqld.exe" \
   --defaults-file="D:/MyProject/coshub/.mysql/my.ini"
 
 # 停止（PowerShell，PID 为监听 3307 的进程号）
 Stop-Process -Id <PID> -Force
 
 # 连接测试
-"D:/MyProject/coshub/.tools/mysql-8.0.29-winx64/bin/mysql.exe" \
+"D:/MyProject/.tools/mysql-8.0.29-winx64/bin/mysql.exe" \
   -h127.0.0.1 -P3307 -uroot -p123456
 ```
 
@@ -231,7 +231,7 @@ Stop-Process -Id <PID> -Force
 ### 5.4 重新初始化
 
 ```bash
-"D:/MyProject/coshub/.tools/mysql-8.0.29-winx64/bin/mysql.exe" \
+"D:/MyProject/.tools/mysql-8.0.29-winx64/bin/mysql.exe" \
   -h127.0.0.1 -P3307 -uroot -p123456 --default-character-set=utf8mb4 \
   < "D:/MyProject/coshub/coshub-api/sql/init.sql"
 ```
@@ -470,7 +470,7 @@ jdbc:mysql://localhost:3307/coshub?useUnicode=true&characterEncoding=utf8&server
 
 ```bash
 # 1️⃣ 启动 MySQL（如未运行）
-"D:/MyProject/coshub/.tools/mysql-8.0.29-winx64/bin/mysqld.exe" \
+"D:/MyProject/.tools/mysql-8.0.29-winx64/bin/mysqld.exe" \
   --defaults-file="D:/MyProject/coshub/.mysql/my.ini"
 
 # 2️⃣ 启动后端（8080）

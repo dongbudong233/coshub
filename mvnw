@@ -16,7 +16,7 @@ JAVA_HOME="${JAVA_HOME:-D:/android/androidStudio/jbr}"
 JAVA="$JAVA_HOME/bin/java.exe"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-MAVEN_HOME="$(to_win "$SCRIPT_DIR")/.tools/apache-maven-3.9.9"
+MAVEN_HOME="$(to_win "$SCRIPT_DIR")/../.tools/apache-maven-3.9.9"
 PROJECT_DIR="$(to_win "$(pwd)")"
 
 exec "$JAVA" \
